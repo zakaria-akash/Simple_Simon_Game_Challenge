@@ -22,6 +22,9 @@ $(".btn").click(function() {
   //calling playSound() method inside the event handler function to play the corresponding sound
   //for everytime a button got clicked
   playSound(userChosenColour);
+
+  //calling the clickAnimation() method to apply the click animation to the button got clicked
+  clickAnimation(userChosenColour);
 });
 
 //a new function called nextSequence()
@@ -54,4 +57,16 @@ function playSound(name) {
   //using Javascript Audio() constructor to play the sound based on the selected button color
   var audio = new Audio("sounds/" + name + ".mp3");
   audio.play();
+}
+
+//declaring a new function called clickAnimation(), it should take a single input parameter called currentColour.
+function clickAnimation(currentColor) {
+
+  //adding the HTML class named "pressed" to the button got clicked to change the background
+  $("#" + currentColor).addClass("pressed");
+
+  //removing the HTML class named "pressed" from the button got clicked to retain the background after 100 milliseconds.
+  setTimeout(function () {
+    $("#" + currentColor).removeClass("pressed");
+  }, 100);
 }
