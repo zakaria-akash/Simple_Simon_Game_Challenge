@@ -17,4 +17,12 @@ function nextSequence() {
   //adding the new randomChosenColour to the end of the gamePattern.
   gamePattern.push(randomChosenColour);
 
+  //using jQuery to select the button with the same id as the randomChosenColour
+  //2. using jQuery to animate a flash to the selected button
+  $("#" + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
+
+  //3. using Javascript Audio() constructor to play the sound based on the selected button color
+  var audio = new Audio("sounds/" + randomChosenColour + ".mp3");
+  audio.play();
+
 }
