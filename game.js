@@ -5,6 +5,23 @@ var buttonColours = ["red", "blue", "green", "yellow"];
 //creating a new empty array called gamePattern.
 var gamePattern = [];
 
+
+//creating a new empty array with the name userClickedPattern.
+var userClickedPattern = [];
+
+//using jQuery to detect when any of the buttons got clicked and trigger an event handler function
+$(".btn").click(function() {
+
+  //inside the handler function, creating a new variable "userChosenColour" to store the id of the button that got clicked
+  var userChosenColour = $(this).attr("id");
+
+  //adding the ID of the detected buttons to the array "userClickedPattern" through the variable "userChosenColour"
+  userClickedPattern.push(userChosenColour);
+
+  console.log(userClickedPattern); //testing the code for all clicked buttons in the console
+
+});
+
 //a new function called nextSequence()
 function nextSequence() {
 
