@@ -34,8 +34,6 @@ $(".btn").click(function() {
   //adding the ID of the detected buttons to the array "userClickedPattern" through the variable "userChosenColour"
   userClickedPattern.push(userChosenColour);
 
-  console.log(userClickedPattern); //testing the code for all clicked buttons in the console
-
   //calling playSound() method inside the event handler function to play the corresponding sound
   //for everytime a button got clicked
   playSound(userChosenColour);
@@ -52,10 +50,7 @@ $(".btn").click(function() {
 function checkAnswer(currentLevel) {
 
     //if statement inside checkAnswer() to check if the most recent user input is the same as the game pattern
-    //console log "success" or "wrong" to test the code
     if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
-
-      console.log("success");
 
       //another if statement to check whether the user has finished the input or not
       //if so, then call the nextSequence() method again for the next level
@@ -69,8 +64,6 @@ function checkAnswer(currentLevel) {
       }
 
     } else {
-
-      console.log("wrong");
       //playing the wrong.mp3 from sounds folder through playSound() method if the user got one of the answers wrong
       playSound("wrong");
 
