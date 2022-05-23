@@ -83,6 +83,9 @@ function checkAnswer(currentLevel) {
       //changing the h1 title to "Game Over, Press Any Key to Restart" if any input from the user is wrong
       $("#level-title").text("Game Over, Press Any Key to Restart");
 
+      //calling the restartGame() method if any input from the user is wrong
+      restartGame();
+
     }
 
 }
@@ -136,4 +139,13 @@ function clickAnimation(currentColor) {
   setTimeout(function () {
     $("#" + currentColor).removeClass("pressed");
   }, 100);
+}
+
+//creating a new function called restartGame() to restart the game
+function restartGame() {
+
+  //resetting the values of level, gamePattern and started variables for the purpose to restart the game
+  level = 0;
+  gamePattern = [];
+  started = false;
 }
