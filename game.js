@@ -8,6 +8,23 @@ var gamePattern = [];
 //creating a new empty array with the name userClickedPattern.
 var userClickedPattern = [];
 
+//a variable to detect and keep track whether if the game has started or not
+var started = false;
+
+//creating a new variable called level and start at level 0.
+var level = 0;
+
+//declaring an event handler method with keypress event to start the game for the first time by calling nextSequence() method inside it
+$(document).keypress(function() {
+  if (!started) {
+
+    //once the game has started the title will show the current level instead of showing "Press A Key to Start"
+    $("#level-title").text("Level: " + level);
+    nextSequence();
+    started = true;
+  }
+});
+
 //using jQuery to detect when any of the buttons got clicked and trigger an event handler function
 $(".btn").click(function() {
 
@@ -29,6 +46,11 @@ $(".btn").click(function() {
 
 //a new function called nextSequence()
 function nextSequence() {
+  //increasing the level by 1 every time nextSequence() is called.
+  level++;
+
+  //updating the h1 title with this change in the value of level.
+  $("#level-title").text("Level " + level);
 
   //a new random number between 0 and 3, and store it in a variable called randomNumber
   var randomNumber = Math.floor(Math.random() * 4);
