@@ -42,10 +42,44 @@ $(".btn").click(function() {
 
   //calling the clickAnimation() method to apply the click animation to the button got clicked
   clickAnimation(userChosenColour);
+
+  //Calling checkAnswer() method at every level with passing the index of the last user input
+  //to justify the user input against the game pattern and to initiate the game for the next level
+  checkAnswer(userClickedPattern.length-1);
 });
+
+//creating a function called checkAnswer() with one input parameter currentLevel
+function checkAnswer(currentLevel) {
+
+    //if statement inside checkAnswer() to check if the most recent user input is the same as the game pattern
+    //console log "success" or "wrong" to test the code
+    if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
+
+      console.log("success");
+
+      //another if statement to check whether the user has finished the input or not
+      //if so, then call the nextSequence() method again for the next level
+      if (userClickedPattern.length === gamePattern.length){
+
+        //Calling nextSequence() method again after a 1000 millisecond delay to initiate the next level of the game
+        setTimeout(function () {
+          nextSequence();
+        }, 1000);
+
+      }
+
+    } else {
+
+      console.log("wrong");
+
+    }
+
+}
 
 //a new function called nextSequence()
 function nextSequence() {
+  //once nextSequence() is initiated, reset the userClickedPattern to an empty array for the next level
+  userClickedPattern = [];
   //increasing the level by 1 every time nextSequence() is called.
   level++;
 
