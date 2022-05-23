@@ -71,6 +71,17 @@ function checkAnswer(currentLevel) {
     } else {
 
       console.log("wrong");
+      //playing the wrong.mp3 from sounds folder through playSound() method if the user got one of the answers wrong
+      playSound("wrong");
+
+      //applying the html class game-over to the entire body for 200 milliseconds if any input from the user is wrong
+      $("body").addClass("game-over");
+      setTimeout(function () {
+        $("body").removeClass("game-over");
+      }, 200);
+
+      //changing the h1 title to "Game Over, Press Any Key to Restart" if any input from the user is wrong
+      $("#level-title").text("Game Over, Press Any Key to Restart");
 
     }
 
