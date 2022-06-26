@@ -142,3 +142,5 @@ function restartGame() {
   gamePattern = [];
   started = false;
 }
+
+//adding comment for new commit texting!
